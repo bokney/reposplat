@@ -1,0 +1,43 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+
+name: Python package
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Install uv (Astral's official action)
+      uses: astral-sh/setup-uv@v6
+      with:
+        version: "latest"
+        enable-cache: true
+
+    - name: Set Python version with uv
+      run: uv python install ${{ matrix.python-version }}
+
+    - name: Sync dependencies
+      run: uv sync
+  
+    - name: Lint
+      run: uv run flake8 src test
+
+    - name: Type Check
+      run: uv run mypy src test
+
+    - name: Run Tests
+      run: uv run pytest
