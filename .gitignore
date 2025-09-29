@@ -1,0 +1,49 @@
+
+# Python bytecode and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.py[oc]
+
+# Python build, packaging, and distribution
+build/
+dist/
+wheels/
+*.egg-info/
+
+# Logs and caches
+logs/
+*.log
+*.log.*
+.cache/
+pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
+coverage.xml
+
+# Virtual environments
+venv/
+.venv/
+
+# Environment variables and secrets
+.env
+.env.*
+.key
+secrets/
+
+# IDE/editor configuration
+.vscode/
+
+# System files (OS-specific)
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.AppleDouble
+.LSOverride
+
+# Application-specific data folders
+data/
