@@ -1,0 +1,34 @@
+[project]
+name = "reposplat"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "bokney" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "pathspec>=0.12.1",
+    "pydantic>=2.11.9",
+    "rich>=14.1.0",
+    "typer>=0.19.2",
+]
+
+[project.scripts]
+reposplat = "reposplat.main:app"
+
+[build-system]
+requires = ["uv_build>=0.8.4,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+addopts = "--maxfail=1 --testdox --cov=reposplat -vv"
+
+[dependency-groups]
+dev = [
+    "flake8>=7.3.0",
+    "mypy>=1.18.2",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "pytest-testdox>=3.1.0",
+]
