@@ -71,7 +71,7 @@ def combine_files(files: List[File], repo_path: Path) -> CombinedFiles:
         try:
             rel_path = file_path.relative_to(repo_path)
         except ValueError:
-            rel_path = file_path.name
+            rel_path = Path(file_path.name)
 
         parts.append(f"=== FILE START: {rel_path} ===")
         parts.append(f.contents)

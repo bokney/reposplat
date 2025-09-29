@@ -73,6 +73,7 @@ def main(
     includes = _normalize_patterns(include, DEFAULT_INCLUDES)
     excludes = _normalize_patterns(exclude, DEFAULT_EXCLUDES)
 
+    output_path = Path(output_path)
     if output_path.suffix != ".txt":
         output_path = output_path.with_suffix(".txt")
 
